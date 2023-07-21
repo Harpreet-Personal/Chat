@@ -5,7 +5,10 @@ from django.http import HttpResponse, JsonResponse
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
+#asdfasdfasdfsdfsdfsdfsdf
 
+def test(request):
+    pass
 def room(request, room):
     username = request.GET.get('username')
     room_details = Room.objects.get(name=room)
@@ -34,9 +37,3 @@ def send(request):
     new_message = Message.objects.create(value=message, user=username, room=room_id)
     new_message.save()
     return HttpResponse('Message sent successfully')
-
-# def getMessages(request, room):
-#     room_details = Room.objects.get(name=room)
-
-#     messages = Message.objects.filter(room=room_details.id)
-#     return JsonResponse({"messages":list(messages.values())})
